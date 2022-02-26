@@ -19,18 +19,18 @@ public:
             }
         }
             
-            while(i<m){
+        while(i<m){
                 ret[k]=nums1[i];
                 k++;
                 i++;
             }
             
-            while(j<n){
+        while(j<n){
                 ret[k]=nums2[j];
                 k++;
                 j++;
             }
             
-            nums1.assign(ret.begin(),ret.end());
+        nums1.assign(ret.begin(),ret.end());
     }
 };
