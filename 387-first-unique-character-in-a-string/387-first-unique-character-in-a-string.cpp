@@ -5,7 +5,6 @@ public:
         for(int i=0;i<s.size();i++){
             charVec[s[i]-97]=(charVec[s[i]-97]>-2?-1:i);
         }
-        
         //find min +ve value
         int ret=-1;
         for(int i=0;i<charVec.size();i++){
