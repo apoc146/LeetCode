@@ -5,7 +5,7 @@ public:
         /**
          * @brief l,r = left and right day
          * if +ve gradient, then r++ since we can still find greater peak
-         * if -ve gradient , l++ and r++ since we dont want this
+         * if -ve gradient , l=r and r++ since we dont want this
          * while doing this keep a track of largest +ve gradient
          * 
          */
