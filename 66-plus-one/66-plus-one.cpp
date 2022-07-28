@@ -1,6 +1,7 @@
 class Solution {
 public:
-        // my recursive function 
+    
+    // my recursive function 
     void foo(vector<int>& vec, int carry, int lsb){
         if(carry==0){
             //do nothing
@@ -8,7 +9,7 @@ public:
         }
         
         if(lsb>=vec.size()){
-            vec.insert(vec.begin(),1);
+            vec.insert(vec.begin(),carry);
             return ;
         }
         
