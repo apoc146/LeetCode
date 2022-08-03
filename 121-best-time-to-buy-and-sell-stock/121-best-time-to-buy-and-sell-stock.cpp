@@ -24,5 +24,28 @@ public:
             }
         }
         return maxDiff;
+        
+        /*********** Using a modification of Kadane Algo
+         
+        int maxProfit(vector<int>& prices){
+        // use sort of kadane algorithm 
+        int global_min=INT_MAX;
+        int global_profit=0;
+        
+        for(int i=0;i<prices.size();i++){
+            if(prices[i]<global_min){
+                global_min=prices[i];
+            }
+            
+            //whats the profit at this index
+            int local_profit=prices[i]-global_min;
+        
+            //is this the best profit
+            global_profit=max(global_profit,local_profit);
+        }
+        return global_profit;
+        }
+        ************/
+        
     }
 };
