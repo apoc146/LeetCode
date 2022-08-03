@@ -9,13 +9,6 @@ public:
             return res;
         }
         
-        
-//         if(nums.front()==0 && nums.back()==0){
-//             nums.resize(3);
-//             res.push_back(nums);
-//             return res;
-//         };
-        
         for(int i=0;i<nums.size();i++){
             
             if(i>0 && nums[i]==nums[i-1])continue;
@@ -49,7 +42,7 @@ public:
         
         sort(res.begin(),res.end());
         res.erase(unique(res.begin(),res.end()),res.end());
-        //Remove Duplicate by converting to set -> back to vector
+        //Remove Duplicate(via sets) by converting to set -> back to vector
         // set<vector<int>> s(res.begin(),res.end());
         // res.assign(s.begin(),s.end());
         return res;
