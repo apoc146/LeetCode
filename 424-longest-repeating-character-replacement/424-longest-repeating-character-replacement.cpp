@@ -1,25 +1,35 @@
 class Solution {
 public:
     int characterReplacement(string s, int k) {
-        vector<int> count(26);
-        int maxCount = 0;
+        int res=0;
+        int l=0;
+        int r=0;
+        unordered_map<char,int> map;
+        int max_freq_char_count=0;
         
-        int i = 0;
-        int j = 0;
-        
-        int result = 0;
-        
-        while (j < s.size()) {
-            count[s[j] - 'A']++;
-            maxCount = max(maxCount, count[s[j] - 'A']);
-            if (j - i + 1 - maxCount > k) {
-                count[s[i] - 'A']--;
-                i++;
+        while(r<s.size()){
+            map[s[r]]++;
+            max_freq_char_count=max(max_freq_char_count,map[s[r]]);
+            int diff_char_count=r-l+1-max_freq_char_count;
+            
+            bool condition= (diff_char_count <= k);
+            
+            while(r-l+1-max_freq_char_count>k){
+                map[s[l]]--;
+                l++;
             }
-            result = max(result, j - i + 1);
-            j++;
+            
+            res=max(res,r-l+1);
+            r++;
+            
+//             if(condition==true){
+//                 res=max(res,r-l+1);
+//                 r++;
+//             }else{
+//                 map[s[l]]--;
+//                 l++;
+//             }
         }
-        
-        return result;
+        return res;
     }
 };
