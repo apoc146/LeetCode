@@ -22,3 +22,24 @@ public:
         return res;
     }
 };
+
+// Beats 42.25% - MORE EASY TO UNDERSTAND
+// class Solution {
+// public:
+//     vector<int> twoSum(vector<int>& nums, int target) {
+//         vector<int> res;
+//         for(int i=0;i<nums.size();i++){
+//             int ele=nums[i];
+//             vector<int> tempVec=nums;
+//             tempVec.erase(tempVec.begin()+i);
+//             auto it=find(tempVec.begin()+i,tempVec.end(),target-ele);
+//             if(it!=tempVec.end())
+//             {
+//                 res.push_back(i);
+//                 res.push_back(distance(tempVec.begin(),it)+1);
+//                 break;
+//             }
+//         }     
+//         return res;   
+//     }
+// };
