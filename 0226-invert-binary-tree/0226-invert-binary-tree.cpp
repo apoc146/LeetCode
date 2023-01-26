@@ -18,17 +18,17 @@ private:
     
 public:
     TreeNode* invertTree(TreeNode* root) {
+        // Left or Null Node
         if(root==NULL or (root->left==NULL && root->right==NULL)){
             return root;
         }   
         
-        TreeNode* l=root->left;
-        TreeNode* r=root->right;
-        
+        //swap left and right sub-trees
         TreeNode* temp=root->left;
         root->left=root->right;
         root->right=temp;
         
+        //now invert the subtrees
         invertTree(root->left);
         invertTree(root->right);
         
