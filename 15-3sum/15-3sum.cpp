@@ -1,8 +1,11 @@
+#include<vector>
+using namespace std;
+
 class Solution {
 public:
-    vector<vector<int>> threeSum(vector<int>& nums) {
+    vector<vector<int> > threeSum(vector<int>& nums) {
         sort(nums.begin(),nums.end());
-        vector<vector<int>> res;
+        vector<vector<int> > res;
 
         // checks
         if(nums.front()>0){

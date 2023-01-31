@@ -1,3 +1,6 @@
+#include<vector>
+#include<iostream>
+using namespace std;
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
@@ -11,3 +14,10 @@ public:
         return false;
     }
 };
+
+int main(){
+    cout<<"HELLO\n";
+    cout<<"HELLO\n";
+    cout<<"HELLO\n";
+    return 0;
+}
