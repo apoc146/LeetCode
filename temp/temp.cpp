@@ -552,7 +552,7 @@ int main(){
     vector<string> dic={"leet","code"};
     int n=s.size();
     vector<int> dp(n+1,-1);
-    cout<<fooMemo(s,dict,dp,0);
+    cout<<fooMemo(s,dic,dp,0);
 
 }
 
