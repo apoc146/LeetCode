@@ -20,4 +20,5 @@ class Solution:
                 maxIdx=s1
             elif (maxLen==l2):
                 maxIdx=s2
+                
         return s[maxIdx:maxIdx+maxLen]
