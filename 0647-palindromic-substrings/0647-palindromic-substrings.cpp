@@ -1,29 +1,26 @@
 class Solution {
 public:
-    int countSubstrings(string s) {
-        vector<string> res;
+    
+int foo(int i,int j, string s){
         int n=s.size();
-        for(int i=0;i<s.size();i++){
-            //odd
-            int l=i;
-            int r=i;
-            
-            while((l>=0 && r<n)&&(s[l]==s[r])){
-                res.push_back(s.substr(l,r-l+1));
-                l--;
-                r++;
-            }
-            
-            //check for even
-            l=i;
-            r=i+1;
-            while((l>=0 && r<n)&&(s[l]==s[r])){
-                res.push_back(s.substr(l,r-l+1));
-                l--;
-                r++;
-            }
+        int cnt=0;
+        while(i>-1 and j<n and (s[i]==s[j])){
+            --i;
+            ++j;
+            cnt++;
         }
-        
-        return res.size();
+    return cnt;
+}
+    
+    int countSubstrings(string s) {
+        int count=0;
+    int n=s.size();
+    for(int i=0;i<n;i++){
+        //either odd or even
+        int e=foo(i,i+1,s);
+        int o=foo(i,i,s);
+        count+=(o+e);
+    } 
+    return count;
     }
 };
