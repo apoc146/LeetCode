@@ -64,10 +64,10 @@
 
 #include<string>
 #include<vector>
-#include<uiostream>
+#include<iostream>
 using namespace std;
 // @lc code=start
-class Solution {
+
 class Solution {
 public:
     string t1="", t2="";
