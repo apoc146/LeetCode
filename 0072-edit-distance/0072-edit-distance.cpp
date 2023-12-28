@@ -37,7 +37,7 @@ public:
         if(s1[idx1]==s2[idx2]){
             return dp[idx1][idx2]=memo(dp,idx1-1,idx2-1);
         }
-        //del, insert, replace.
+        //replace, del, insert
         return dp[idx1][idx2]=(1+min(memo(dp,idx1-1,idx2-1), min(memo(dp,idx1-1,idx2),memo(dp,idx1,idx2-1))));
     }
     
