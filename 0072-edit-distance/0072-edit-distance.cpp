@@ -34,11 +34,10 @@ public:
             return dp[idx1][idx2];
         }
 
-        
         if(s1[idx1]==s2[idx2]){
             return dp[idx1][idx2]=memo(dp,idx1-1,idx2-1);
         }
-        //del, insert, replace
+        //del, insert, replace.
         return dp[idx1][idx2]=(1+min(memo(dp,idx1-1,idx2-1), min(memo(dp,idx1-1,idx2),memo(dp,idx1,idx2-1))));
     }
     
@@ -48,12 +47,6 @@ public:
         n1=word1.size();
         n2=word2.size();
         vector<vector<int>> dp(n1+1, vector<int>(n2+1,-1));
-        // for(int i=0;i<=n1;i++){
-        //     dp[i][0]=n1;
-        // }
-        // for(int j=0;j<=n2;j++){
-        //     dp[0][j]=n2;
-        // }
         if(n1==0 and n2==0){
             return 0;
         }
