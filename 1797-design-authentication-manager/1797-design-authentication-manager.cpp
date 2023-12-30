@@ -1,3 +1,7 @@
+/*
+* Map to store {id:exp time}
+* Simple
+*/
 class AuthenticationManager {
 public:
     int ttl=0;
@@ -29,11 +33,3 @@ public:
         return ans;
     }
 };
-
-/**
- * Your AuthenticationManager object will be instantiated and called as such:
- * AuthenticationManager* obj = new AuthenticationManager(timeToLive);
- * obj->generate(tokenId,currentTime);
- * obj->renew(tokenId,currentTime);
- * int param_3 = obj->countUnexpiredTokens(currentTime);
- */
