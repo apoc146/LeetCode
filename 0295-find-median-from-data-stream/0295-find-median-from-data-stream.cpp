@@ -1,7 +1,7 @@
 class MedianFinder {
 public:
-    priority_queue<int> maxHeap;
-    priority_queue<int, vector<int>, greater<int>> minHeap;
+    priority_queue<int> bottom;
+    priority_queue<int, vector<int>, greater<int>> top;
     int n1=0;
     int n2=0;
     MedianFinder() {
@@ -10,28 +10,29 @@ public:
     
     // Adds a number to the data structure.
     void addNum(int num) {
-        if (maxHeap.empty() || num <= maxHeap.top()) {
-            maxHeap.push(num);
-        } else {
-            minHeap.push(num);
+        //insert ele first
+        if(bottom.size()==0 || num<bottom.top()){
+            bottom.push(num);
+        }else{
+            top.push(num); 
         }
-
-        // Balance the heaps
-        if (maxHeap.size() > minHeap.size() + 1) {
-            minHeap.push(maxHeap.top());
-            maxHeap.pop();
-        } else if (minHeap.size() > maxHeap.size()) {
-            maxHeap.push(minHeap.top());
-            minHeap.pop();
+        
+        //rebalance heaps
+        if(bottom.size()>top.size()+1){
+            top.push(bottom.top());
+            bottom.pop();
+        }else if(top.size() > bottom.size()){
+            bottom.push(top.top());
+            top.pop();
         }
     }
 
     // Returns the median of current data stream
     double findMedian() {
-        if (maxHeap.size() == minHeap.size()) {
-            return (maxHeap.top() + minHeap.top()) / 2.0;
-        } else {
-            return maxHeap.top();
+        if(bottom.size()==top.size() ){
+            return (bottom.top()+top.top())/2.0;
+        }else{
+            return bottom.top();
         }
     }
 };
