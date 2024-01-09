@@ -11,8 +11,6 @@
  */
 class Solution {
 public:
-    int k=-1;
-    int ans=-1;
     void foo(TreeNode* root, vector<int>& vec){
         if(root==NULL){
             return ;
@@ -23,10 +21,8 @@ public:
         foo(root->right, vec);
     }
     int kthSmallest(TreeNode* root, int k) {
-        this->k=k;
         vector<int> vec;
         foo(root, vec);
-        return vec[k-1];
-        
+        return vec[k-1];  
     }
 };
