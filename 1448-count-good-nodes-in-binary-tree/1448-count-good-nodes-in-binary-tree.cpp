@@ -12,7 +12,6 @@
 class Solution {
 public:
     //A function to return # of good nodes
-    // 
     int foo(TreeNode* root, int maxVal){
         if(root==NULL){
             return 0;
