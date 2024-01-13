@@ -11,14 +11,15 @@ void dfs(int i, int j, vector<vector<char>>& graph, vector<vector<int>>& visited
     int r = graph.size();
     int col = graph[0].size();
 
-    if (check(i, j, r, col) && graph[i][j] == '1' && !visited[i][j]) {
-        visited[i][j] = 1;
-        vector<pair<int, int>> neighs({{0, -1}, {-1, 0}, {0, +1}, {+1, 0}});
-        for (int c = 0; c < 4; c++) {
-            int xx = i + neighs[c].first;
-            int yy = j + neighs[c].second;
-            dfs(xx, yy, graph, visited);
-        }
+    if (!check(i, j, r, col) or graph[i][j] == '0' or visited[i][j]==1) {
+        return ;
+    }
+    visited[i][j] = 1;
+    vector<pair<int, int>> neighs({{0, -1}, {-1, 0}, {0, +1}, {+1, 0}});
+    for (int c = 0; c < 4; c++) {
+        int xx = i + neighs[c].first;
+        int yy = j + neighs[c].second;
+        dfs(xx, yy, graph, visited);
     }
 }
 
