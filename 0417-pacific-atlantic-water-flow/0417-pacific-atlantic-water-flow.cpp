@@ -1,3 +1,5 @@
+// Had to make many trivial check optimizations to make it pass in c++
+// just use older submission for understanding 
 class Solution {
 public:
     int m=-1;
