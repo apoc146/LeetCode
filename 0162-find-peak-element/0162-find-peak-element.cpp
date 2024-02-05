@@ -5,10 +5,12 @@ public:
         if(n<=1){
             return n-1;
         }
+        //first ele is peak
         if(nums[0]>nums[1]){
             return 0;
         }
         
+        //last ele is peak
         if(nums[n-1]>nums[n-2]){
             return n-1;
         }
@@ -21,6 +23,8 @@ public:
                 return mid;
             } 
             
+            //left is more than mid
+            // left is mid so move to left
             if(nums[l]>nums[mid]){
                 r--;
             }else{
