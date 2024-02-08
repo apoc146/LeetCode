@@ -3,7 +3,7 @@ public:
     vector<int> exclusiveTime(int n, vector<string>& logs) {
         stack<int> st;
         vector<int> ans(n,0);
-        int prevStartTime=0;
+        int lastKnownStartTime=0;
         for(auto& log:logs){
             
             stringstream iss(log);
@@ -19,15 +19,15 @@ public:
             
             if(status=="start"){
                 if(!st.empty()){
-                    ans[st.top()]+=(time-prevStartTime);
+                    ans[st.top()]+=(time-lastKnownStartTime);
                 }
 
                 st.push(pid);
-                prevStartTime=time;
+                lastKnownStartTime=time;
             }else{
-                ans[pid]+=(time-prevStartTime+1);
+                ans[pid]+=(time-lastKnownStartTime+1);
                 st.pop();
-                prevStartTime=time+1;
+                lastKnownStartTime=time+1;
             }
         }
         return ans;
