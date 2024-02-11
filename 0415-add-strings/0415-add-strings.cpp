@@ -1,11 +1,5 @@
 class Solution {
 public:
-    void printVec(vector<int> vec){
-        for(auto& ele:vec){
-            cout<<ele<<" ";
-        }
-        cout<<endl;
-    }
     string addStrings(string num1, string num2) {
         int n1=num1.size();
         int n2=num2.size();
