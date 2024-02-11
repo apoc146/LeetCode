@@ -20,24 +20,19 @@ public:
             ans[cnt]=(sum)%10;
             ans[cnt+1]=sum/10;
             cnt++;
-        }
-        
+        }        
         reverse(ans.begin(),ans.end());
-        // printVec(ans);
-        cout<<ans.size();
+
         cnt=0;
         while(ans.size()>0 and cnt<ans.size() and ans[cnt]==0){
             cnt++;
         }
+        
         string str="";
         for(int i=cnt;i<ans.size();i++){
             str+=(ans[i]+'0');
         }
-        // for(auto& num:ans){
-        //     if(num!=0){
-        //         str+=(num+'0');
-        //     }
-        // }
+
         if(str==""){
             return "0"; 
         }
