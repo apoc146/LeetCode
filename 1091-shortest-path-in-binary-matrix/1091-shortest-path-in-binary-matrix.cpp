@@ -18,7 +18,7 @@ public:
             int row = q.front().first.first;
             int col = q.front().first.second;
             int len = q.front().second;
-
+            q.pop(); 
             if(row == n-1 && col == n-1){
                 return len+1;
             }
@@ -32,7 +32,6 @@ public:
                     visited.insert(make_pair(nrow,ncol));
                 }
             }
-            q.pop(); 
         }
         return -1;
     }
