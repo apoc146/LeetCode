@@ -10,15 +10,20 @@ public:
             prefixSum[i]=(prefixSum[i-1]+nums[i]);
         }
         
+        // covert to remainder array
+        for(auto& ele:prefixSum){
+            ele%=k;    
+        }
+        
         mp[0]=-1;
         for(int i=0;i<n;i++){
             int ele=prefixSum[i];
-            if(mp.count(ele%k)>0){
-                if(i-mp[ele%k]>=2){
+            if(mp.count(ele)>0){
+                if(i-mp[ele]>=2){
                     return true;
                 }
             }else{
-                mp[ele%k]=i;
+                mp[ele]=i;
             }
             
         }
