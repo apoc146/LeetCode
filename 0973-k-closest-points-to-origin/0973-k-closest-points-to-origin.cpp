@@ -1,12 +1,9 @@
-class comp{
-  public:
-    bool operator()(vector<int> a,vector<int> b){
-        int dist1=pow(a[0],2) + pow(a[1],2);
-        int dist2=pow(b[0],2) +  pow(b[1],2);
-        if(dist1<dist2){
-            return false;
-        }
-        return true;
+class comp {
+public:
+    bool operator()(vector<int>& a, vector<int>& b) {
+        int dist1 = pow(a[0], 2) + pow(a[1], 2);
+        int dist2 = pow(b[0], 2) + pow(b[1], 2);
+        return dist1 > dist2; // Compare distances in ascending order
     }
 };
 
