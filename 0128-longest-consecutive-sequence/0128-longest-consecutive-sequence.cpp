@@ -12,9 +12,6 @@ public:
         
         int global=INT_MIN;
         for(auto ele:nums){
-            if(ele==-999){
-                cout<<"test";
-            }
             //check for start of seq
             if(map.count(ele-1)==0){
                 int len=1;
@@ -28,7 +25,6 @@ public:
                 //skip
             }
         }
-        
         return global;
     }
 };
