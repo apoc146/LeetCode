@@ -42,7 +42,7 @@ public:
                     if(r_idx >=0 and r_idx<n and c_idx>=0 and c_idx<m and visited[r_idx][c_idx]==0 and grid[r_idx][c_idx]==1){
                         q.push({r_idx,c_idx});
                         visited[r_idx][c_idx]=1;
-                        // grid[r_idx][c_idx]=2;
+                        grid[r_idx][c_idx]=2;
                         fresh--;
                     }
                 }
