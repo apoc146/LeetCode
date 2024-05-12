@@ -23,9 +23,7 @@ public:
         if(!root){
             return true;
         }    
-        // if(!root->left and !root->right){
-        //     return true;
-        // }
+
         int lht=height(root->left);
         int rht=height(root->right);
         return abs(lht-rht)<=1 and isBalanced(root->left) and isBalanced(root->right);
