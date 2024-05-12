@@ -9,9 +9,10 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+typedef TreeNode* Node;
 class Solution {
 public:
-    int height(TreeNode* root){
+    int height(Node root){
         if(!root){
             return 0;
         }
