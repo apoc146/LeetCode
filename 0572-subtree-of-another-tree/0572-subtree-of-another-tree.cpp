@@ -11,31 +11,28 @@
  */
 class Solution {
 public:
-    bool treeSame(TreeNode* r1, TreeNode* r2){
+    bool isSame(TreeNode* r1, TreeNode* r2){
         if(!r1 and !r2){
             return true;
         }
         
-        if( (!r1 and r2) or (r1 and !r2)){
+        if((!r1 and r2) or (r1 and !r2)){
             return false;
         }
         
-        return ((r1 and r2) and (r1->val == r2->val) and treeSame(r1->left,r2->left) and  treeSame(r1->right,r2->right));
-        
-    }
-    
-    bool dfs(TreeNode* root, TreeNode* subRoot){
-        if(root==NULL){
+        if(r1->val!=r2->val){
             return false;
         }
         
-        bool val1=treeSame(root,subRoot);
-        bool val2=dfs(root->left, subRoot);
-        bool val3=dfs(root->right, subRoot);
-        return val1 | val2 | val3;
+        return ((r1->val == r2->val) and (isSame(r1->left, r2->left)) and (isSame(r1->right, r2->right)));
     }
     
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-            return dfs(root, subRoot);
+        if(root==NULL or subRoot == nullptr){
+            return false;
+        }
+        
+        return isSame(root, subRoot) or isSubtree(root->left, subRoot) or isSubtree(root->right, subRoot);
+        
     }
 };
