@@ -12,20 +12,18 @@
 class Solution {
 public:
     TreeNode* removeLeafNodes(TreeNode* root, int target) {
-        if (root == nullptr) {
-            return nullptr;
-        }
-
-        // Recursively remove leaf nodes with the target value
-        root->left = removeLeafNodes(root->left, target);
-        root->right = removeLeafNodes(root->right, target);
-
-        // Check if the current node is a leaf node with the target value
-        if (root->left == nullptr && root->right == nullptr && root->val == target) {
-
-            return nullptr; // Update the root pointer in the calling function
+       if(root==NULL){
+           return root;
+       } 
+        
+        root->left=removeLeafNodes(root->left, target);
+        root->right=removeLeafNodes(root->right, target);
+    
+        if(root->val== target and  !root->left and !root->right){
+            return NULL;
         }
 
         return root;
+        
     }
 };
