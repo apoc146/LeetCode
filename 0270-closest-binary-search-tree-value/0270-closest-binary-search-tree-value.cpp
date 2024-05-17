@@ -19,16 +19,18 @@ public:
         if(root == NULL)
             return;
 
-        if(abs(root->val - target) < abs(ans - target))
-            ans = root->val;
-        else if(abs(root->val - target) == abs(ans - target))
-            ans = min(ans, root->val);
-
         if(target > root->val)
             util(root->right, target);
 
         if(target < root->val)
             util(root->left, target);
+        
+        
+        if(abs(root->val - target) < abs(ans - target))
+            ans = root->val;
+        else if(abs(root->val - target) == abs(ans - target))
+            ans = min(ans, root->val);
+
     }
 
     int closestValue(TreeNode* root, double target) {
