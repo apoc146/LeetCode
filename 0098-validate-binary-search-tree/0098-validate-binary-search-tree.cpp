@@ -18,10 +18,6 @@ public:
             return true;
         }
         
-        if(root->val <= min or root->val >=max){
-            return false;    
-        }
-        
         return root and (root->val > min and root->val < max) and foo(root->left, min, root->val) and foo(root->right, root->val, max);
     }
     
