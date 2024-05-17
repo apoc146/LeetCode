@@ -11,16 +11,25 @@
  */
 class Solution {
 public:
-    //neetcode sol
+    
     bool foo(TreeNode* root, long min, long max){
+        
         if(root==NULL){
             return true;
-        }    
+        }
         
-        return ( root->val >min and root->val <max and foo(root->left,min,root->val) and foo(root->right,root->val,max));
+        if(root->val <= min or root->val >=max){
+            return false;    
+        }
+        
+        return root and (root->val > min and root->val < max) and foo(root->left, min, root->val) and foo(root->right, root->val, max);
     }
     
     bool isValidBST(TreeNode* root) {
-            return foo(root, -1e10, 1e10);
+        if(root==NULL){
+            return true;
+        }
+        
+        return foo(root, -1e10, 1e10);
     }
 };
