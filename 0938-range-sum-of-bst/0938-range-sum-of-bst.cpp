@@ -20,7 +20,8 @@ public:
         int left=rangeSumBST(root->left, low, high);
         int right=rangeSumBST(root->right, low, high);
         
-        int isBetweenVal = (root->val>=low)? (root->val<=high?root->val:0):0;
+        // int isBetweenVal = (root->val>=low)? (root->val<=high?root->val:0):0;
+        int isBetweenVal = ( root->val >= low and root->val<=high)? root->val:0;
         
         return isBetweenVal +  left + right;
     }
