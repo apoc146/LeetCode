@@ -11,19 +11,17 @@
  */
 class Solution {
 public:
+    int ans=0;
     int rangeSumBST(TreeNode* root, int low, int high) {
         if(root==NULL){
             return 0;
-        }
+        } 
         
-        int rootVal=0;
+        int left=rangeSumBST(root->left, low, high);
+        int right=rangeSumBST(root->right, low, high);
         
-        if(root->val>=low and root->val <= high){
-            rootVal= root->val;
-        }
+        int isBetweenVal = (root->val>=low)? (root->val<=high?root->val:0):0;
         
-        int leftSum=rangeSumBST(root->left, low, high);
-        int rightSum=rangeSumBST(root->right, low, high);
-        return   rootVal+leftSum+rightSum;
+        return isBetweenVal +  left + right;
     }
 };
