@@ -10,34 +10,23 @@
  */
 class Solution {
 public:
-    void foo(ListNode** head, ListNode** prev, ListNode** cur, int n, int* cnt){
-        if(*cur==NULL){
-            return;
-        }
-        
-        foo(head,cur,&((*cur)->next),n,cnt);
-        *cnt= *cnt+1;
-        if(n==*cnt){
-            if(*prev==NULL){
-                *head=(*cur)->next;
-            }else{
-                (*prev)->next=(*cur)->next;
-
-            }
-        }
-    }
+    int count=0;
+    ListNode* prev=NULL;
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        if(head==NULL){
-            return NULL;
-        }
+        if (head == NULL) {
+                    return head;
+                }
+
+                head->next = removeNthFromEnd(head->next, n);
+                count++;
+
+                if (count == n) {
+                    ListNode* nextNode = head->next;
+                    delete head; 
+                    return nextNode; 
+                }
+
+                return head;
         
-        if(n==1 and head->next==NULL){
-            return NULL;
-        }
-        int count=0;
-        ListNode* prev=NULL;
-        ListNode* cur=head;
-        foo(&head,&prev,&cur,n,&count);
-        return head;
     }
 };
